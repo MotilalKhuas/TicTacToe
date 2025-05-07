@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/adcbb26a4c.js" crossorigin="anonymous"></script>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div id="confirm_modal" class="modal">
+        <h2 class="heading">RESTART GAME?</h2>
+        <div class="modal_buttons">
+            <button class="cancel_btn">NO, CANCEL</button>
+            <button class="restart_btn">YES, RESTART</button>
+        </div> 
+    </div>
+
+    <div id="new_game_modal" class="modal">
+        <div id="input_container">
+            <h2 class="heading">TOTAL ROUNDS</h2>
+            <input type="number" name="total_round">
+        </div>
+        <div class="modal_buttons">
+            <button class="new_game_btn">START GAME</button>
+        </div> 
+        <p id="error_container">
+            <span id="error_symbol"></span>
+            <span id="error_msg"></span>
+        </p>
+    </div>
+
+    <div id="game_over_modal" class="modal">
+        <h2 id="victory_msg" class="heading">
+            <span></span>
+            <span></span>
+        </h2>
+        <div id="result">
+            <table id="result_table" align="center">
+                <tr>
+                    <td><span class="cross_color">X</span> (PLAYER-1)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span class="circle_color">O</span> (PLAYER-2)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TIES</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal_buttons">
+            <button class="restart_btn new_game_btn">PLAY AGAIN</button>
+        </div> 
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="container">
+        <div id="header_container">
+            <div id="logo">
+                <span class="cross_color">X</span>
+                <span class="circle_color">O</span>
+            </div>
+            <div id="turn_indicator">
+                <span></span>  TURN
+            </div>
+            <div id="reset_btn">
+                <button>
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
+        </div>
+        <div id="buttons_container">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+        <div id="footer_container">
+            <div class="score">
+                X (PLAYER-1)<br>
+                <SPAN>0</SPAN>
+            </div>
+ 
+            <div class="score">
+                TIES<br>
+                <SPAN>0</SPAN>
+            </div>
+ 
+            <div class="score">
+                O (PLAYER-2)<br>
+                <SPAN>0</SPAN>
+            </div>
+           
+        </div>
+    </div>
+ 
+ 
+    <script src="script.js"></script>
+</body>
+</html>

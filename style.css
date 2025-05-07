@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+ 
+html {
+    font-size: 15px;
+}
+
+@media screen and (max-width : 700px){
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width : 500px){
+    html {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width : 380px){
+    html {
+        font-size: 9px;
+    }
+}
+
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 100vh;
+    overflow: hidden;
+    background-color : #1a2a33;
+}
+
+button{
+    border : none;
+    border-radius: 1rem;
+    outline : none;
+    
+}
+
+button:active {
+    transform: scale(0.95);
+}
+ 
+.cross_color {
+    color : #31c3bd;
+}
+ 
+.circle_color{
+    color : #f2b137;
+}
+
+.modal{
+    position: absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition-duration: 0.5s;
+
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 1.25rem;
+
+    width : 31.25rem;
+    height : 18.75rem;
+
+    border-radius: 10px;
+
+    background-color: #1f3641;
+
+    z-index: 3;
+}
+
+.modal_buttons{
+    display: flex;
+    gap : 0.625rem;
+}
+
+.modal_buttons > button{
+    font-size: 1.1rem;
+    font-weight : 700;
+    color : #1f3641;
+    cursor: pointer;
+    padding : 0.8rem 1.3rem
+}
+
+.cancel_btn{
+    background-color: #a8bfc9;
+    box-shadow: 0px 5px 1px #6b8997;
+}
+
+.cancel_btn:hover{
+    background-color: #c8d6dc;
+}
+
+.restart_btn{
+    background-color: #f2b137;
+    box-shadow: 0px 5px 1px #cc8b13;
+}
+
+.restart_btn:hover{
+    background-color: #f0c36f;
+}
+
+.modal.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.heading{
+    font-size: 1.8rem;
+    font-weight: 900;
+    color : #a8bfc9;
+    text-align: center;
+}
+
+#input_container > input{
+    height : 3.125rem;
+    width : 18.75rem;
+    border-radius: 1rem;
+    outline: none;
+    border : none;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color : #1f3641;
+    margin-top: 1rem;
+}
+
+#input_container > input:focus{
+    outline: 2px solid #f2b137;
+    border : 2px solid #f2b137;
+}
+
+.new_game_btn{
+    background-color: #f2b137;
+    box-shadow: 0px 5px 1px #cc8b13;
+    width : 18.75rem;
+    height : 3.75rem;
+}
+
+.new_game_btn:hover{
+    background-color: #f0c36f;
+}
+
+#error_container{
+    position : absolute;
+    bottom : 0.625rem;
+    display: flex;
+    align-items: center;
+    gap : 0.313rem;
+    color : rgb(255, 65, 65);
+    font-weight: 700;
+}
+
+#error_symbol{
+    font-size: 1.2rem; 
+}
+
+#error_msg{
+    font-size: 0.8rem; 
+}
+
+
+#overlay{
+    position : absolute;
+    top : 0;
+    left : 0;
+    right : 0;
+    bottom: 0;
+    background-color: #0d1519b0;
+    transform: scale(0);
+    z-index: 2;
+}
+
+#overlay.active{
+    transform: scale(1);
+}
+
+#victory_msg > span:nth-child(1){
+    font-size: 3.5rem;
+}
+
+#victory_msg > span:nth-child(2){
+    font-size: 2.5rem;
+}
+
+#result_table{
+   font-size: 1.1rem;
+   color : #a8bfc9;
+}
+
+#result_table td:nth-child(2){
+    text-align: right;
+    width : 3.125rem;
+}
+
+#result_table tr td:first-child > span {
+    font-size: 1.2rem;
+    font-weight : 900;
+}
+ 
+#container{
+    padding : 0.5rem;
+    z-index: 1;
+}
+ 
+#header_container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap : 0.625rem;
+}
+ 
+#logo{
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -5px;
+    line-height: 3rem;
+}
+ 
+#turn_indicator{
+    color : #a8bfc9;
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 3rem;
+    border-radius: 10px;
+    background-color: #1f3641;
+    box-shadow: 0px 5px #10212a;
+}
+ 
+#turn_indicator > span{
+    padding: 0 0.5rem 0 0;
+}
+ 
+#reset_btn{
+    display: flex;
+    justify-content: flex-end;
+}
+ 
+#reset_btn > button{
+    background-color: #a8bfc9;
+    font-size: 2rem;
+    color : #1a2a33;
+    box-shadow: 0px 5px #6b8997;
+    outline : none;
+    padding : 0 1rem;
+    cursor: pointer;
+}
+ 
+#buttons_container{
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap : 1.125rem;
+    width: 28.125rem;
+    height : 28.125rem;
+    margin : 1.2rem 0;
+}
+ 
+#buttons_container > button{
+    font-size: 4rem;
+    font-weight: 900;
+    background-color: #1f3641;
+    box-shadow: 0px 7px #10212a;
+    cursor : pointer;
+}
+ 
+#buttons_container > .victory_boxes{
+    font-size: 4.5rem;
+    color : #1f3641;
+    scale: 1.02;
+    transition-duration: 0.5s;
+}
+ 
+#footer_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap : 1.125rem;
+    text-align: center;
+}
+ 
+#footer_container > .score{
+    color : #1f3641;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+}
+ 
+#footer_container > .score > span{
+    font-size: 2rem;
+}
+ 
+#footer_container > .score:nth-child(1){
+   
+    background-color: #31c3bd;
+}
+ 
+#footer_container > .score:nth-child(2){
+    background-color: #a8bfc9;
+}
+ 
+#footer_container > .score:nth-child(3){
+    background-color: #f2b137;
+}
