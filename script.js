@@ -103,38 +103,42 @@ function gameOver(){
 
 
 function checkRoundWinner(){
+    let is_current_round_completed = false;
+    let is_Winner_found = false;
     for(let pattern of winning_pattern){
         let [a, b, c] = pattern;
         let [text_1, text_2, text_3] = [buttons[a].textContent, buttons[b].textContent, buttons[c].textContent];
-        let is_current_round_completed = false;
 
         if(text_1 && text_1 === text_2 && text_1 === text_3){
             highlightWinningButtons([buttons[a], buttons[b], buttons[c]], text_1);
             buttons.forEach(btn=>btn.disabled = true);
 
             text_1 === "O" ? o_win_count++ : x_win_count++;
+            is_Winner_found = true;
             is_current_round_completed = true;
+            break;
         }
-        else{
-            if((o_count + x_count) === 9){
-                ties_count++;
-                is_current_round_completed = true;
-            }
-        }
+    }
 
-        if(is_current_round_completed){
-            setTimeout(()=>{
-                if(current_round === total_rounds){
-                    gameOver();
-                    updatePlayAreaAndScore(0, 0, 0);
-                }
-                else{
-                    updatePlayAreaAndScore(o_win_count, x_win_count, ties_count);
-                }
-                current_round++;
-            }, 1000);
-            return;
-        }
+    
+    if(!is_Winner_found && ((o_count + x_count) === 9)){
+        ties_count++;
+        is_current_round_completed = true;
+    }
+        
+
+    if(is_current_round_completed){
+        setTimeout(()=>{
+            if(current_round === total_rounds){
+                gameOver();
+                updatePlayAreaAndScore(0, 0, 0);
+            }
+            else{
+                updatePlayAreaAndScore(o_win_count, x_win_count, ties_count);
+            }
+            current_round++;
+        }, 1000);
+        return;
     }
 }
 
